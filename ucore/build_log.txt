@@ -1,0 +1,229 @@
+mkdir -p /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/schedule
+DEP sched_RR.c
+DEP sched_MLFQ.c
+DEP sched.c
+CC sched.c
+CC sched_MLFQ.c
+CC sched_RR.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/schedule/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/schedule/sched.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/schedule/sched_MLFQ.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/schedule/sched_RR.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/syscall
+DEP gettimeofday.c
+CC gettimeofday.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/syscall/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/syscall/gettimeofday.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/fs
+DEP sysfile.c
+DEP iobuf.c
+DEP fs.c
+DEP file.c
+CC file.c
+CC fs.c
+CC iobuf.c
+CC sysfile.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/builtin.o
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/fs/devs
+DEP dev_stdout.c
+DEP dev_stdin.c
+DEP dev_null.c
+DEP dev_disk1.c
+DEP dev_disk0.c
+DEP dev.c
+CC dev.c
+CC dev_disk0.c
+CC dev_disk1.c
+CC dev_null.c
+CC dev_stdin.c
+CC dev_stdout.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/devs/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/devs/dev.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/devs/dev_disk0.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/devs/dev_disk1.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/devs/dev_null.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/devs/dev_stdin.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/devs/dev_stdout.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/fs/pipe
+DEP pipe_state.c
+DEP pipe_root.c
+DEP pipe_inode.c
+DEP pipe.c
+CC pipe.c
+CC pipe_inode.c
+CC pipe_root.c
+CC pipe_state.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/pipe/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/pipe/pipe.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/pipe/pipe_inode.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/pipe/pipe_root.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/pipe/pipe_state.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/fs/vfs
+DEP vfspath.c
+DEP vfslookup.c
+DEP vfsfile.c
+DEP vfsdev.c
+DEP vfs.c
+DEP inode.c
+CC inode.c
+CC vfs.c
+CC vfsdev.c
+CC vfsfile.c
+CC vfslookup.c
+CC vfspath.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/vfs/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/vfs/inode.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/vfs/vfs.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/vfs/vfsdev.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/vfs/vfsfile.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/vfs/vfslookup.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/vfs/vfspath.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/fs/swap
+DEPS=
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/fs/sfs
+DEP sfs_lock.c
+DEP sfs_io.c
+DEP sfs_inode.c
+DEP sfs_fs.c
+DEP sfs.c
+DEP bitmap.c
+CC bitmap.c
+CC sfs.c
+CC sfs_fs.c
+CC sfs_inode.c
+CC sfs_io.c
+CC sfs_lock.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/sfs/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/sfs/bitmap.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/sfs/sfs.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/sfs/sfs_fs.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/sfs/sfs_inode.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/sfs/sfs_io.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/sfs/sfs_lock.d
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/file.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/fs.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/iobuf.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/fs/sysfile.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/process
+DEP signal.c
+DEP proc.c
+CC proc.c
+CC signal.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/process/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/process/proc.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/process/signal.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/mm
+DEP slab.c
+DEP vmm.c
+DEP swap.c
+DEP shmem.c
+CC shmem.c
+CC swap.c
+CC vmm.c
+CC slab.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/mm/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/mm/shmem.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/mm/swap.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/mm/vmm.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/mm/slab.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/libs
+DEP string.c
+DEP readline.c
+DEP rb_tree.c
+CC rb_tree.c
+CC readline.c
+CC string.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/libs/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/libs/rb_tree.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/libs/readline.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/libs/string.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/glue-ucore
+DEP pmm.c
+CC pmm.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/glue-ucore/builtin.o
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/glue-ucore/libs
+DEP string.c
+DEP rand.c
+DEP printfmt.c
+DEP hash.c
+CC hash.c
+CC printfmt.c
+CC rand.c
+CC string.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/glue-ucore/libs/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/glue-ucore/libs/hash.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/glue-ucore/libs/printfmt.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/glue-ucore/libs/rand.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/glue-ucore/libs/string.d
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/glue-ucore/pmm.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/sync
+DEP wait.c
+DEP sync.c
+DEP sem.c
+DEP mbox.c
+DEP event.c
+CC event.c
+CC mbox.c
+CC sem.c
+CC sync.c
+CC wait.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/sync/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/sync/event.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/sync/mbox.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/sync/sem.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/sync/sync.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/sync/wait.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/arch/i386
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/arch/i386/debug
+DEP panic.c
+DEP monitor.c
+DEP kdebug.c
+CC kdebug.c
+CC monitor.c
+CC panic.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/debug/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/debug/kdebug.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/debug/monitor.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/debug/panic.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/arch/i386/driver
+DEP picirq.c
+DEP intr.c
+DEP ide.c
+DEP console.c
+DEP clock.c
+CC clock.c
+CC console.c
+CC ide.c
+CC intr.c
+CC picirq.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/driver/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/driver/clock.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/driver/console.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/driver/ide.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/driver/intr.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/driver/picirq.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/arch/i386/glue-ucore
+DEP vectors.S
+DEP trapentry.S
+DEP trap.c
+DEP pmm.c
+DEP mp.c
+DEP kio.c
+CC kio.c
+CC mp.c
+CC pmm.c
+CC trap.c
+CC trapentry.S
+CC vectors.S
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/glue-ucore/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/glue-ucore/kio.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/glue-ucore/mp.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/glue-ucore/pmm.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/glue-ucore/trap.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/glue-ucore/trapentry.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/glue-ucore/vectors.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/arch/i386/init
+DEP init.c
+DEP entry.S
+CC entry.S
+CC init.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/init/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/init/entry.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/init/init.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/arch/i386/mm
+DEP vmm.c
+DEP swap.c
+DEP pmm.c
+DEP buddy_pmm.c
+CC buddy_pmm.c
+CC pmm.c
+CC swap.c
+CC vmm.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/mm/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/mm/buddy_pmm.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/mm/pmm.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/mm/swap.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/mm/vmm.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/arch/i386/process
+DEP signal.c
+DEP switch.S
+DEP procentry.S
+DEP proc.c
+CC proc.c
+CC procentry.S
+CC switch.S
+CC signal.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/process/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/process/proc.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/process/procentry.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/process/switch.d /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/process/signal.d
+Enter /private/work/JOSwork/ucore-review-16.5.19/ucore/src/kern-ucore/arch/i386/syscall
+DEP syscall.c
+CC syscall.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/syscall/builtin.o
+DEPS=/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel/arch/i386/syscall/syscall.d
+DEPS=
+DEPS=
+Building uCore Kernel for i386
+DEP arch/i386/bootmain.c
+DEP arch/i386/bootasm.S
+CC arch/i386/bootasm.S
+CC arch/i386/bootmain.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/bootloader/bootloader
+DEP i386/sign.c
+CC i386/sign.c
+LD /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/sign
+OBJCOPY /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/bootloader/bootsect
+'/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/bootloader/bootsect.original' size: 436 bytes
+build 512 bytes boot sector: '/private/work/JOSwork/ucore-review-16.5.19/ucore/obj/bootloader/bootsect' success!
+creating linker script
+Linking uCore
+Making /private/work/JOSwork/ucore-review-16.5.19/ucore/obj/kernel.img

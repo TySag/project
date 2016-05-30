@@ -1,0 +1,51 @@
+mkdir -p /home/hust/git/Oslab/ucore/ucore/obj/config
+make CC="/usr/bin/gcc" -C package/config mconf
+/usr/bin/gcc -DCURSES_LOC="<ncurses.h>" -DLOCALE -g -O2   mconf.o zconf.tab.o lxdialog/checklist.o lxdialog/util.o lxdialog/inputbox.o lxdialog/textbox.o lxdialog/yesno.o lxdialog/menubox.o -o mconf -lncurses -lcurses
+rm -f /home/hust/git/Oslab/ucore/ucore/obj/config/auto.conf /home/hust/git/Oslab/ucore/ucore/obj/config/autoconf.h
+[?1049h[1;23r(B[m[4l[?7h[?1h=[39;49m[?1h=[?1h=[39;49m[37m[40m[H[2J[23d(B[0;1m[36m[44m[J[H uCore 0.1V Configuration[K
+ (0[0;1m[36m[44mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(B[0;1m[36m[44m[K
+[K
+[82G[1K [30m[40m  [36m[44m[K
+[1K [30m[40m  [36m[44m[K
+[1K [30m[40m  [36m[44m[K
+[1K [30m[40m  [36m[44m[K
+[1K [30m[40m  [36m[44m[K
+[5G[1K (B[0m[30m[47m    (B[0;1m[37m[44m    [33m[44mT[37m[44moolchain setup  --->(B[0m[30m[47m[45X[80G(B[0;1m[36m[44m   [30m[40m  [36m[44m[K
+[5G[1K [37m[47m[74X[80G[36m[44m   [30m[40m  [36m[44m[K
+[5G[1K [37m[47m[74X[80G[36m[44m   [30m[40m  [36m[44m[K
+[5G[1K [37m[47m[74X[80G[36m[44m   [30m[40m  [36m[44m[K
+[5G[1K [37m[47m[74X[80G[36m[44m   [30m[40m  [36m[44m[K
+[5G[1K [37m[47m[74X[80G[36m[44m   [30m[40m  [36m[44m[K
+[5G[1K [37m[47m[74X[80G[36m[44m   [30m[40m  [36m[44m[K
+[5G[1K [37m[47m[74X[80G[36m[44m   [30m[40m  [36m[44m[K
+[5G[1K [37m[47m[74X[80G[36m[44m   [30m[40m  [36m[44m[K
+[1K [30m[40m  [36m[44m[K
+[1K [30m[40m  [36m[44m[K
+[1K [30m[40m  [36m[44m[K
+[1K [30m[40m  [36m[44m[K
+    [30m[40m[80X[85G[36m[44m[K[9;11H(B[m[39;49m[37m[40m
+[6G[30m[47m    [30m[47m    M(B[0;1m[34m[47me(B[0m[30m[47mmory Management  --->[30m[47m[43X[10;16H(B[m[39;49m[37m[40m
+[6G[30m[47m    [30m[47m    (B[0;1m[34m[47mS(B[0m[30m[47mchedule  --->[30m[47m[52X[11;15H(B[m[39;49m[37m[40m
+[6G[30m[47m    [30m[47m    (B[0;1m[34m[47mF(B[0m[30m[47milesystem  --->[30m[47m[50X[12;15H(B[m[39;49m[37m[40m
+[6G[30m[47m    [30m[47m    (B[0;1m[34m[47mL(B[0m[30m[47minux Device Driver Environment  --->[30m[47m[29X[13;15H(B[m[39;49m[37m[40m
+[6G[30m[47m    [30m[47m--- [30m[47m[66X(B[m[39;49m[37m[40m
+[6G[30m[47m    [30m[47m    (B[0;1m[34m[47mL(B[0m[30m[47moad an Alternate Configuration File[30m[47m[30X[15;15H(B[m[39;49m[37m[40m
+[6G[30m[47m    [30m[47m    (B[0;1m[34m[47mS(B[0m[30m[47mave an Alternate Configuration File[30m[47m[30X[16;15H(B[m[39;49m[37m[40m[3;3H(0[0;1m[37m[47mlqqqqqqqqqqqqqqqqqqqqqqqqqqqq(B[0;1m[34m[47m uCore Configuration (0[0;1m[37m[47mqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(0[0m[30m[47mk(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m  Arrow keys navigate the menu.  <Enter> selects submenus --->.  Highlighted  (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m  letters are hotkeys.  Pressing <Y> selectes a feature, while <N> will       (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m  exclude a feature.  Press <Esc><Esc> to exit, <?> for Help, </> for Search. (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m  Legend: [*] feature is selected  [ ] feature is excluded[20X[82G(0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mlqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(0[0;1m[37m[47mk(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m[80G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m[80G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m[80G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m[80G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m[80G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m[80G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m[80G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m[80G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m[80G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m (0[0m[30m[47mm(0[0;1m[37m[47mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B[0m[30m[47m (0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mtqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(0[0m[30m[47mu(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mx(B[0m[30m[47m[78X[82G(0[0m[30m[47mx(B(B[m[39;49m[37m[40m
+[3G(0[0m[30m[47m(0[0;1m[37m[47mm(0[0m[30m[47mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj(B(B[m[39;49m[37m[40m[18;10H(0[0m[30m[47m(B(B[m[39;49m[37m[40m[81G[20;27H(B[0;1m[37m[44m<[33m[44mS[37m[44melect[37m[44m>(B[0m[30m[47m    [30m[47m<(B[0;1m[30m[47m (B[0m[31m[47mE(B[0;1m[30m[47mxit (B[0m[30m[47m>[30m[47m    [30m[47m<(B[0;1m[30m[47m (B[0m[31m[47mH(B[0;1m[30m[47melp (B[0m[30m[47m>[20;28H(B[m[39;49m[37m[40m[9;11H[39;49m[23d[K[23;1H[?1049l[?1l>

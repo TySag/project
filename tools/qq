@@ -1,0 +1,11 @@
+
+ucore-kernel-initrd:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00027400  80000000  80000000  00000060  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00102070  80027400  80027400  00027460  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00006600  80129470  80129470  001294d0  2**2
+                  ALLOC

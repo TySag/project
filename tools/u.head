@@ -1,0 +1,11 @@
+
+flash.img:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00019400  80000000  80000000  00000060  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         000bd850  80019400  80019400  00019460  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00003d80  800d6c50  800d6c50  000d6cb0  2**2
+                  ALLOC
