@@ -120,7 +120,7 @@ int ls(const char *path)
 	printf(" @ is %s", filetype[type]);
 	printf(" %d(hlinks)", stat->st_nlinks);
 	printf(" %d(blocks)", stat->st_blocks);
-	printf(" %d(bytes) : @'%s'\r\n", stat->st_size, path);//YX
+	printf(" %d(bytes) : @'%s'\r\n", stat->st_size, path);
 	if (S_ISDIR(stat->st_mode)) {
 		return lsdir(path);
 	}

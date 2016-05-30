@@ -1,3 +1,6 @@
+/*
+Monder: XinYao <authwork@163.com>
+*/
 #include <ulib.h>
 #include <stdio.h>
 #include <string.h>
@@ -73,7 +76,7 @@ char *readline(const char *prompt)
 		if (c == 3) {
 			return NULL;
 		} else if (c >= ' ' && i < BUFSIZE - 1) {
-			//putc(c);
+			//putc(c); donot need YX
 			buffer[i++] = c;
 		} else if (c == '\b' && i > 0) {
 			//putc(c);
@@ -204,7 +207,7 @@ runit:
 		}
 		strcpy(shcwd, argv[1]);
 		return 0;
-	} else if (strcmp(argv[0], "clear") == 0){ //YX printf("\033[H\033[J");
+	} else if (strcmp(argv[0], "clear") == 0){ //YX to clear 
 		printf("\033[H\033[J");
 		cls = 1;
 		return 0;
@@ -246,7 +249,7 @@ int main(int argc, char **argv)
 		}
 		assert(pid >= 0);
 		if (waitpid(pid, &ret) == 0) {
-			if(cls){//YX
+			if(cls){//YX this is a branch for clear
 				cls = 0;
 				continue;
 			}
