@@ -1,0 +1,166 @@
+DEP kern/fetchrun/fetchrun.c
+DEP kern/fs/devs/dev_stdout.c
+DEP kern/fs/devs/dev_stdin.c
+DEP kern/fs/devs/dev_disk0.c
+DEP kern/fs/devs/dev.c
+DEP kern/fs/sfs/sfs_lock.c
+DEP kern/fs/sfs/sfs_io.c
+DEP kern/fs/sfs/sfs_inode.c
+DEP kern/fs/sfs/sfs_fs.c
+DEP kern/fs/sfs/sfs.c
+DEP kern/fs/sfs/bitmap.c
+DEP kern/fs/vfs/vfspath.c
+DEP kern/fs/vfs/vfslookup.c
+DEP kern/fs/vfs/vfsfile.c
+DEP kern/fs/vfs/vfsdev.c
+DEP kern/fs/vfs/vfs.c
+DEP kern/fs/vfs/inode.c
+DEP kern/fs/sysfile.c
+DEP kern/fs/iobuf.c
+DEP kern/fs/fs.c
+DEP kern/fs/file.c
+DEP kern/syscall/syscall.c
+DEP kern/schedule/sched.c
+DEP kern/schedule/default_sched.c
+DEP kern/process/proc.c
+DEP kern/sync/wait.c
+DEP kern/sync/sem.c
+DEP kern/mm/vmm.c
+DEP kern/mm/thumips_tlb.c
+DEP kern/mm/pmm.c
+DEP kern/mm/kmalloc.c
+DEP kern/mm/buddy_pmm.c
+DEP kern/trap/trap.c
+DEP kern/driver/vga.c
+DEP kern/driver/ramdisk.c
+DEP kern/driver/picirq.c
+DEP kern/driver/intr.c
+DEP kern/driver/ide.c
+DEP kern/driver/console.c
+DEP kern/driver/clock.c
+DEP kern/debug/panic.c
+DEP kern/debug/monitor.c
+DEP kern/debug/kdebug.c
+DEP kern/libs/string.c
+DEP kern/libs/stdio.c
+DEP kern/libs/readline.c
+DEP kern/libs/rb_tree.c
+DEP kern/libs/rand.c
+DEP kern/libs/printfmt.c
+DEP kern/libs/hash.c
+DEP kern/init/init.c
+mips-sde-elf-gcc -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -g -c -o boot/loader.o boot/bootasm.S
+mips-sde-elf-ld -EL -n -G0 -Ttext 0xbfc00000 -o boot/loader boot/loader.o
+mips-sde-elf-objcopy -O binary  -S boot/loader boot/loader.bin
+ctags -R .
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/init/init.c  -o obj/init/init.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/libs/hash.c  -o obj/libs/hash.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/libs/printfmt.c  -o obj/libs/printfmt.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/libs/rand.c  -o obj/libs/rand.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/libs/rb_tree.c  -o obj/libs/rb_tree.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/libs/readline.c  -o obj/libs/readline.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/libs/stdio.c  -o obj/libs/stdio.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/libs/string.c  -o obj/libs/string.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/debug/kdebug.c  -o obj/debug/kdebug.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/debug/monitor.c  -o obj/debug/monitor.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/debug/panic.c  -o obj/debug/panic.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/driver/clock.c  -o obj/driver/clock.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/driver/console.c  -o obj/driver/console.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/driver/ide.c  -o obj/driver/ide.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/driver/intr.c  -o obj/driver/intr.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/driver/picirq.c  -o obj/driver/picirq.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/driver/ramdisk.c  -o obj/driver/ramdisk.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/driver/vga.c  -o obj/driver/vga.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/trap/trap.c  -o obj/trap/trap.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/mm/buddy_pmm.c  -o obj/mm/buddy_pmm.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/mm/kmalloc.c  -o obj/mm/kmalloc.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/mm/pmm.c  -o obj/mm/pmm.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/mm/thumips_tlb.c  -o obj/mm/thumips_tlb.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/mm/vmm.c  -o obj/mm/vmm.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/sync/sem.c  -o obj/sync/sem.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/sync/wait.c  -o obj/sync/wait.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/process/proc.c  -o obj/process/proc.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/schedule/default_sched.c  -o obj/schedule/default_sched.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/schedule/sched.c  -o obj/schedule/sched.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/syscall/syscall.c  -o obj/syscall/syscall.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/file.c  -o obj/fs/file.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/fs.c  -o obj/fs/fs.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/iobuf.c  -o obj/fs/iobuf.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/sysfile.c  -o obj/fs/sysfile.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/vfs/inode.c  -o obj/fs/vfs/inode.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/vfs/vfs.c  -o obj/fs/vfs/vfs.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/vfs/vfsdev.c  -o obj/fs/vfs/vfsdev.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/vfs/vfsfile.c  -o obj/fs/vfs/vfsfile.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/vfs/vfslookup.c  -o obj/fs/vfs/vfslookup.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/vfs/vfspath.c  -o obj/fs/vfs/vfspath.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/sfs/bitmap.c  -o obj/fs/sfs/bitmap.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/sfs/sfs.c  -o obj/fs/sfs/sfs.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/sfs/sfs_fs.c  -o obj/fs/sfs/sfs_fs.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/sfs/sfs_inode.c  -o obj/fs/sfs/sfs_inode.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/sfs/sfs_io.c  -o obj/fs/sfs/sfs_io.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/sfs/sfs_lock.c  -o obj/fs/sfs/sfs_lock.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/devs/dev.c  -o obj/fs/devs/dev.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/devs/dev_disk0.c  -o obj/fs/devs/dev_disk0.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/devs/dev_stdin.c  -o obj/fs/devs/dev_stdin.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fs/devs/dev_stdout.c  -o obj/fs/devs/dev_stdout.o
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/fetchrun/fetchrun.c  -o obj/fetchrun/fetchrun.o
+mips-sde-elf-gcc -mips32 -c -D__ASSEMBLY__ -DMACH_FPGA -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -g -EL -G0  kern/init/entry.S  -o obj/init/entry.o
+mips-sde-elf-gcc -mips32 -c -D__ASSEMBLY__ -DMACH_FPGA -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -g -EL -G0  kern/trap/exception.S  -o obj/trap/exception.o
+mips-sde-elf-gcc -mips32 -c -D__ASSEMBLY__ -DMACH_FPGA -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -g -EL -G0  kern/trap/vectors.S  -o obj/trap/vectors.o
+mips-sde-elf-gcc -mips32 -c -D__ASSEMBLY__ -DMACH_FPGA -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -g -EL -G0  kern/process/entry.S  -o obj/process/entry.o
+mips-sde-elf-gcc -mips32 -c -D__ASSEMBLY__ -DMACH_FPGA -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -g -EL -G0  kern/process/switch.S  -o obj/process/switch.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/sh.c  -o obj/user/sh.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/libs/dir.c  -o obj/user/libs/dir.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/libs/file.c  -o obj/user/libs/file.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/libs/panic.c  -o obj/user/libs/panic.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/libs/printfmt.c  -o obj/user/libs/printfmt.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/libs/stdio.c  -o obj/user/libs/stdio.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/libs/string.c  -o obj/user/libs/string.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/libs/syscall.c  -o obj/user/libs/syscall.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/libs/ulib.c  -o obj/user/libs/ulib.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/libs/umain.c  -o obj/user/libs/umain.o
+mips-sde-elf-gcc -mips32 -c -D__ASSEMBLY__ -Iuser/libs -Ikern/include -g -EL -G0  user/libs/initcode.S  -o obj/user/libs/initcode.o
+Building USERLIB
+mips-sde-elf-ar rcs obj/user/libuser.a  obj/user/libs/dir.o  obj/user/libs/file.o  obj/user/libs/panic.o  obj/user/libs/printfmt.o  obj/user/libs/stdio.o  obj/user/libs/string.o  obj/user/libs/syscall.o  obj/user/libs/ulib.o  obj/user/libs/umain.o obj/user/libs/initcode.o
+LINK obj/user/sh
+mips-sde-elf-ld -S -T user/libs/user.ld  obj/user/sh.o obj/user/libuser.a -o obj/user/sh
+sed 's/$FILE/sh/g' tools/piggy.S.in > obj/user/piggy.S
+mips-sde-elf-as -EL -g -mips32 obj/user/piggy.S -o obj/user/sh.piggy.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/ls.c  -o obj/user/ls.o
+LINK obj/user/ls
+mips-sde-elf-ld -S -T user/libs/user.ld  obj/user/ls.o obj/user/libuser.a -o obj/user/ls
+sed 's/$FILE/ls/g' tools/piggy.S.in > obj/user/piggy.S
+mips-sde-elf-as -EL -g -mips32 obj/user/piggy.S -o obj/user/ls.piggy.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/cat.c  -o obj/user/cat.o
+LINK obj/user/cat
+mips-sde-elf-ld -S -T user/libs/user.ld  obj/user/cat.o obj/user/libuser.a -o obj/user/cat
+sed 's/$FILE/cat/g' tools/piggy.S.in > obj/user/piggy.S
+mips-sde-elf-as -EL -g -mips32 obj/user/piggy.S -o obj/user/cat.piggy.o
+mips-sde-elf-gcc -c -mips1  -Iuser/libs -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float  user/run.c  -o obj/user/run.o
+LINK obj/user/run
+mips-sde-elf-ld -S -T user/libs/user.ld  obj/user/run.o obj/user/libuser.a -o obj/user/run
+sed 's/$FILE/run/g' tools/piggy.S.in > obj/user/piggy.S
+mips-sde-elf-as -EL -g -mips32 obj/user/piggy.S -o obj/user/run.piggy.o
+make -C ours/snake
+make[1]: Entering directory `/home/hust/IoT/ucore/ours/snake'
+make[1]: `snake' is up to date.
+make[1]: Leaving directory `/home/hust/IoT/ucore/ours/snake'
+make -C ours/slideshow
+make[1]: Entering directory `/home/hust/IoT/ucore/ours/slideshow'
+make[1]: `slideshow' is up to date.
+make[1]: Leaving directory `/home/hust/IoT/ucore/ours/slideshow'
+rm -rf obj/user/rootfs obj/user/initrd.img
+mkdir obj/user/rootfs
+cp obj/user/sh obj/user/ls obj/user/cat obj/user/run obj/user/rootfs
+cp -Lr user/_archive/* obj/user/rootfs/
+dd if=/dev/zero of=obj/user/initrd.img count=1500
+#touch obj/user/initrd.img
+tools/mksfs obj/user/initrd.img obj/user/rootfs
+create obj/user/initrd.img (obj/user/rootfs) successfully.
+#sed 's%_FILE_%obj/user/sfs-orig.img%g' tools/initrd_piggy.S.in > obj/user/initrd_piggy.S	
+sed 's%_FILE_%obj/user/initrd.img%g' tools/initrd_piggy.S.in > obj/user/initrd_piggy.S
+mips-sde-elf-as -EL -g -mips32 obj/user/initrd_piggy.S -o obj/user/initrd.img.o
+LINK obj/ucore-kernel-initrd
+mips-sde-elf-ld -S -nostdlib -n -G 0 -static -T tools/kernel.ld  obj/init/init.o  obj/libs/hash.o  obj/libs/printfmt.o  obj/libs/rand.o  obj/libs/rb_tree.o  obj/libs/readline.o  obj/libs/stdio.o  obj/libs/string.o  obj/debug/kdebug.o  obj/debug/monitor.o  obj/debug/panic.o  obj/driver/clock.o  obj/driver/console.o  obj/driver/ide.o  obj/driver/intr.o  obj/driver/picirq.o  obj/driver/ramdisk.o  obj/driver/vga.o  obj/trap/trap.o  obj/mm/buddy_pmm.o  obj/mm/kmalloc.o  obj/mm/pmm.o  obj/mm/thumips_tlb.o  obj/mm/vmm.o  obj/sync/sem.o  obj/sync/wait.o  obj/process/proc.o  obj/schedule/default_sched.o  obj/schedule/sched.o  obj/syscall/syscall.o  obj/fs/file.o  obj/fs/fs.o  obj/fs/iobuf.o  obj/fs/sysfile.o  obj/fs/vfs/inode.o  obj/fs/vfs/vfs.o  obj/fs/vfs/vfsdev.o  obj/fs/vfs/vfsfile.o  obj/fs/vfs/vfslookup.o  obj/fs/vfs/vfspath.o  obj/fs/sfs/bitmap.o  obj/fs/sfs/sfs.o  obj/fs/sfs/sfs_fs.o  obj/fs/sfs/sfs_inode.o  obj/fs/sfs/sfs_io.o  obj/fs/sfs/sfs_lock.o  obj/fs/devs/dev.o  obj/fs/devs/dev_disk0.o  obj/fs/devs/dev_stdin.o  obj/fs/devs/dev_stdout.o  obj/fetchrun/fetchrun.o  obj/init/entry.o  obj/trap/exception.o  obj/trap/vectors.o  obj/process/entry.o  obj/process/switch.o \
+				 obj/user/initrd.img.o -o obj/ucore-kernel-initrd
+rm -rf obj/user/rootfs

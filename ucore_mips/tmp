@@ -1,0 +1,43 @@
+DEP kern/process/proc.c
+ctags -R .
+mips-sde-elf-gcc -c -mips1 -Ikern/init -Ikern/libs -Ikern/debug -Ikern/driver -Ikern/trap -Ikern/mm -Ikern/sync -Ikern/process -Ikern/schedule -Ikern/syscall -Ikern/fs -Ikern/fs/vfs -Ikern/fs/sfs -Ikern/fs/devs -Ikern/fetchrun -Ikern/include -fno-builtin -nostdlib  -nostdinc -g  -EL -G0 -Wformat -O2 -mno-float -DMACH_FPGA kern/process/proc.c  -o obj/process/proc.o
+Building USERLIB
+mips-sde-elf-ar rcs obj/user/libuser.a  obj/user/libs/dir.o  obj/user/libs/file.o  obj/user/libs/panic.o  obj/user/libs/printfmt.o  obj/user/libs/stdio.o  obj/user/libs/string.o  obj/user/libs/syscall.o  obj/user/libs/ulib.o  obj/user/libs/umain.o obj/user/libs/initcode.o
+LINK obj/user/sh
+mips-sde-elf-ld -S -T user/libs/user.ld  obj/user/sh.o obj/user/libuser.a -o obj/user/sh
+sed 's/$FILE/sh/g' tools/piggy.S.in > obj/user/piggy.S
+mips-sde-elf-as -EL -g -mips32 obj/user/piggy.S -o obj/user/sh.piggy.o
+LINK obj/user/ls
+mips-sde-elf-ld -S -T user/libs/user.ld  obj/user/ls.o obj/user/libuser.a -o obj/user/ls
+sed 's/$FILE/ls/g' tools/piggy.S.in > obj/user/piggy.S
+mips-sde-elf-as -EL -g -mips32 obj/user/piggy.S -o obj/user/ls.piggy.o
+LINK obj/user/cat
+mips-sde-elf-ld -S -T user/libs/user.ld  obj/user/cat.o obj/user/libuser.a -o obj/user/cat
+sed 's/$FILE/cat/g' tools/piggy.S.in > obj/user/piggy.S
+mips-sde-elf-as -EL -g -mips32 obj/user/piggy.S -o obj/user/cat.piggy.o
+LINK obj/user/run
+mips-sde-elf-ld -S -T user/libs/user.ld  obj/user/run.o obj/user/libuser.a -o obj/user/run
+sed 's/$FILE/run/g' tools/piggy.S.in > obj/user/piggy.S
+mips-sde-elf-as -EL -g -mips32 obj/user/piggy.S -o obj/user/run.piggy.o
+make -C ours/snake
+make[1]: Entering directory `/bigdata/yaoxin-data/pc2board/ucore/ours/snake'
+make[1]: `snake' is up to date.
+make[1]: Leaving directory `/bigdata/yaoxin-data/pc2board/ucore/ours/snake'
+make -C ours/slideshow
+make[1]: Entering directory `/bigdata/yaoxin-data/pc2board/ucore/ours/slideshow'
+make[1]: `slideshow' is up to date.
+make[1]: Leaving directory `/bigdata/yaoxin-data/pc2board/ucore/ours/slideshow'
+rm -rf obj/user/rootfs obj/user/initrd.img
+mkdir obj/user/rootfs
+cp obj/user/sh obj/user/ls obj/user/cat obj/user/run obj/user/rootfs
+cp -Lr user/_archive/* obj/user/rootfs/
+dd if=/dev/zero of=obj/user/initrd.img count=1500
+#touch obj/user/initrd.img
+tools/mksfs obj/user/initrd.img obj/user/rootfs
+create obj/user/initrd.img (obj/user/rootfs) successfully.
+sed 's%_FILE_%obj/user/initrd.img%g' tools/initrd_piggy.S.in > obj/user/initrd_piggy.S
+mips-sde-elf-as -EL -g -mips32 obj/user/initrd_piggy.S -o obj/user/initrd.img.o
+LINK obj/ucore-kernel-initrd
+mips-sde-elf-ld -S -nostdlib -n -G 0 -static -T tools/kernel.ld  obj/init/init.o  obj/libs/hash.o  obj/libs/printfmt.o  obj/libs/rand.o  obj/libs/rb_tree.o  obj/libs/readline.o  obj/libs/stdio.o  obj/libs/string.o  obj/debug/kdebug.o  obj/debug/monitor.o  obj/debug/panic.o  obj/driver/clock.o  obj/driver/console.o  obj/driver/ide.o  obj/driver/intr.o  obj/driver/picirq.o  obj/driver/ramdisk.o  obj/driver/vga.o  obj/trap/trap.o  obj/mm/buddy_pmm.o  obj/mm/kmalloc.o  obj/mm/pmm.o  obj/mm/thumips_tlb.o  obj/mm/vmm.o  obj/sync/sem.o  obj/sync/wait.o  obj/process/proc.o  obj/schedule/default_sched.o  obj/schedule/sched.o  obj/syscall/syscall.o  obj/fs/file.o  obj/fs/fs.o  obj/fs/iobuf.o  obj/fs/sysfile.o  obj/fs/vfs/inode.o  obj/fs/vfs/vfs.o  obj/fs/vfs/vfsdev.o  obj/fs/vfs/vfsfile.o  obj/fs/vfs/vfslookup.o  obj/fs/vfs/vfspath.o  obj/fs/sfs/bitmap.o  obj/fs/sfs/sfs.o  obj/fs/sfs/sfs_fs.o  obj/fs/sfs/sfs_inode.o  obj/fs/sfs/sfs_io.o  obj/fs/sfs/sfs_lock.o  obj/fs/devs/dev.o  obj/fs/devs/dev_disk0.o  obj/fs/devs/dev_stdin.o  obj/fs/devs/dev_stdout.o  obj/fetchrun/fetchrun.o  obj/init/entry.o  obj/trap/exception.o  obj/trap/vectors.o  obj/process/entry.o  obj/process/switch.o \
+				 obj/user/initrd.img.o -o obj/ucore-kernel-initrd
+rm -rf obj/user/rootfs
